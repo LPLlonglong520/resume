@@ -97,7 +97,7 @@
 
 详细项目内容、应用演示视频及数据成果可通过以下链接查看：
 
-👉 **[点击查看-我主导的企业级AI产品介绍](https://e3e777cf6758458c89da6c308ef02467.app.codebuddy.work)**
+👉 **[点击查看-我主导的企业级AI产品介绍](https://lpllonglong520.github.io/ai-marketing-site/)**
 
 ---
 
