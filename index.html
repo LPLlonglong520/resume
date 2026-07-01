@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>刘佩龙 · AI产品经理</title>
+<style>
+  :root{
+    --ink:#0f172a;--ink-soft:#334155;--muted:#64748b;--faint:#94a3b8;
+    --accent:#2563eb;--accent-soft:#dbeafe;--accent-deep:#1d4ed8;
+    --gold:#b45309;--gold-soft:#fef3c7;
+    --green:#0d9488;--green-soft:#ccfbf1;
+    --surface:#ffffff;--bg:#f1f5f9;
+    --rule:#e2e8f0;--rule-light:#f1f5f9;
+    --radius:10px;--radius-sm:6px;
+    --shadow:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.03);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:14px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  body{
+    background:var(--bg);color:var(--ink-soft);
+    font-family:'Inter','PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+    line-height:1.65;letter-spacing:.01em;
+  }
+  .page{max-width:880px;margin:0 auto;padding:28px 20px 40px}
+
+  /* ═══════════ HEADER ═══════════ */
+  .header{
+    background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#172554 100%);
+    border-radius:16px;padding:36px 40px;margin-bottom:24px;position:relative;overflow:hidden;
+  }
+  .header::before{
+    content:'';position:absolute;top:-60px;right:-60px;
+    width:240px;height:240px;border-radius:50%;
+    background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);
+  }
+  .header::after{
+    content:'';position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+    width:300px;height:80px;border-radius:50%;
+    background:radial-gradient(ellipse,rgba(37,99,235,.06),transparent 70%);
+  }
+  .header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;position:relative;z-index:1}
+  .header-main{flex:1;min-width:0}
+  .header-name{font-size:2rem;font-weight:700;color:#fff;letter-spacing:.03em;margin-bottom:2px;line-height:1.2}
+  .header-role{font-size:.95rem;color:rgba(255,255,255,.78);font-weight:400;margin-bottom:18px}
+  .header-contact{display:flex;flex-wrap:wrap;gap:6px 20px}
+  .header-contact span{font-size:.82rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px}
+  .header-contact svg{width:14px;height:14px;opacity:.6;flex-shrink:0}
+
+  .kpi-row{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden;flex-shrink:0}
+  .kpi-item{padding:16px 22px;text-align:center;min-width:90px;border-right:1px solid rgba(255,255,255,.08)}
+  .kpi-item:last-child{border-right:none}
+  .kpi-num{font-size:1.6rem;font-weight:700;color:#fff;line-height:1.1;display:block}
+  .kpi-label{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:4px;letter-spacing:.04em}
+
+  /* ═══════════ MAIN GRID ═══════════ */
+  .main-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
+
+  /* ═══════════ SECTION TITLES ═══════════ */
+  .sec-title{
+    display:flex;align-items:center;gap:10px;margin-bottom:16px;
+    font-size:.9rem;font-weight:700;color:var(--ink);letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .sec-title .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .sec-title .en{font-size:.68rem;color:var(--faint);font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-left:auto}
+
+  /* ═══════════ LEFT COLUMN ═══════════ */
+  .card{
+    background:var(--surface);border-radius:var(--radius);
+    border:1px solid var(--rule);padding:24px 28px;margin-bottom:20px;
+    box-shadow:var(--shadow);
+  }
+
+  /* Work experience timeline */
+  .job{margin-bottom:24px;position:relative}
+  .job:last-child{margin-bottom:0}
+  .job-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:4px;margin-bottom:2px}
+  .job-role{font-size:1.05rem;font-weight:700;color:var(--ink);line-height:1.3}
+  .job-time{font-size:.75rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:20px;white-space:nowrap;letter-spacing:.02em}
+  .job-company{font-size:.85rem;font-weight:600;color:var(--accent-deep);margin-bottom:6px}
+  .job-summary{font-size:.84rem;color:var(--muted);line-height:1.7;margin-bottom:10px}
+
+  .job-bullets{list-style:none;position:relative;padding-left:20px}
+  .job-bullets li{
+    font-size:.82rem;color:var(--ink-soft);line-height:1.75;position:relative;padding-bottom:4px;
+  }
+  .job-bullets li::before{
+    content:'';position:absolute;left:-20px;top:9px;width:6px;height:6px;
+    border-radius:50%;background:var(--accent);opacity:.6
+  }
+  .job-bullets li::after{
+    content:'';position:absolute;left:-18px;top:15px;width:1.5px;
+    height:calc(100% + 4px);background:var(--rule-light)
+  }
+  .job-bullets li:last-child::after{display:none}
+  .job-bullets strong{color:var(--ink);font-weight:600}
+
+  .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;margin-left:3px;vertical-align:middle;line-height:1.6}
+  .tag-gold{background:var(--gold-soft);color:var(--gold)}
+  .tag-green{background:var(--green-soft);color:var(--green)}
+
+  /* Projects card */
+  .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:12px}
+  .proj-link{
+    display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;
+    color:var(--accent);background:var(--accent-soft);padding:7px 16px;border-radius:8px;
+    text-decoration:none;transition:all .15s;letter-spacing:.02em;
+  }
+  .proj-link:hover{background:#bfdbfe;color:var(--accent-deep)}
+  .proj-link svg{width:14px;height:14px}
+
+  /* ═══════════ RIGHT COLUMN ═══════════ */
+  .side-card{
+    background:var(--surface);border-radius:var(--radius);
+    border:1px solid var(--rule);padding:20px 22px;margin-bottom:16px;
+    box-shadow:var(--shadow);
+  }
+  .side-title{
+    font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.06em;
+    text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;
+  }
+  .side-title::after{content:'';flex:1;height:1px;background:var(--rule-light)}
+
+  /* Education */
+  .edu-item{margin-bottom:12px}
+  .edu-item:last-child{margin-bottom:0}
+  .edu-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:4px}
+  .edu-major{font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.35}
+  .edu-year{font-size:.74rem;color:var(--muted);background:var(--bg);padding:1px 8px;border-radius:4px;white-space:nowrap}
+  .edu-school{font-size:.74rem;color:var(--muted);font-weight:500}
+  .edu-detail{font-size:.76rem;color:var(--muted);line-height:1.6}
+
+  /* Skills */
+  .skill-group{margin-bottom:12px}
+  .skill-group:last-child{margin-bottom:0}
+  .skill-cat{font-size:.68rem;font-weight:700;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:4px}
+  .s-tag{font-size:.74rem;padding:3px 10px;border-radius:20px;font-weight:500;line-height:1.5;letter-spacing:.01em}
+  .s-primary{background:var(--accent-soft);color:var(--accent)}
+  .s-secondary{background:var(--bg);color:var(--muted)}
+
+  /* Honors */
+  .honor-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule-light)}
+  .honor-item:last-child{border-bottom:none}
+  .honor-icon{font-size:.85rem;width:24px;text-align:center;flex-shrink:0;line-height:1.5}
+  .honor-text{font-size:.78rem;font-weight:600;color:var(--ink);line-height:1.4}
+  .honor-from{font-size:.7rem;color:var(--faint);margin-top:1px}
+
+  /* Self eval */
+  .eval-text{font-size:.8rem;color:var(--muted);line-height:1.8}
+
+  /* ═══════════ PRINT ═══════════ */
+  @media print{
+    @page{size:A4;margin:12mm}
+    html{font-size:12px}
+    body{background:#fff}
+    .page{max-width:100%;padding:0}
+    .header{border-radius:0;padding:20px 24px;box-shadow:none;break-inside:avoid}
+    .main-grid{grid-template-columns:1fr;gap:16px}
+    .card,.side-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+    .card{padding:16px 20px;margin-bottom:14px}
+    .side-card{padding:14px 16px;margin-bottom:12px}
+    .job{margin-bottom:16px;break-inside:avoid}
+    .job-bullets li{break-inside:avoid}
+    .header-contact span,.kpi-item{color:rgba(255,255,255,.85)!important}
+    .proj-link{background:#e2e8f0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+  @media(max-width:740px){
+    .main-grid{grid-template-columns:1fr}
+    .header-row{flex-direction:column;align-items:stretch}
+    .kpi-row{justify-content:center}
+    .header{padding:24px 20px}
+    .header-name{font-size:1.5rem}
+    .page{padding:12px 8px 24px}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-row">
+    <div class="header-main">
+      <div class="header-name">刘佩龙</div>
+      <div class="header-role">AI 产品经理 &nbsp;·&nbsp; 企业级 AI 解决方案</div>
+      <div class="header-contact">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1993年 · 6年+ 产品经验</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.8 19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.93 2.84 2 2 0 012 .84h3a2 2 0 012 1.72"/></svg>133-3601-1475</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>杭州</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>3年+ AI 产品落地</span>
+      </div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi-item"><span class="kpi-num">5+</span><span class="kpi-label">全场景业务流</span></div>
+      <div class="kpi-item"><span class="kpi-num">10+</span><span class="kpi-label">AI 应用上线</span></div>
+      <div class="kpi-item"><span class="kpi-num">8</span><span class="kpi-label">荣誉认定</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAIN GRID ═══ -->
+<div class="main-grid">
+
+<!-- ═══ LEFT COLUMN ═══ -->
+<div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="card">
+    <div class="sec-title">
+      <span class="dot" style="background:var(--accent)"></span>工作经历
+      <span class="en">Experience</span>
+    </div>
+
+    <!-- 安恒信息 -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">AI 应用产品经理</span>
+        <span class="job-time">2023.05 — 至今</span>
+      </div>
+      <div class="job-company">安恒信息技术股份有限公司 · 营销中心</div>
+      <div class="job-summary"><strong style="color:var(--ink)">从0到1主导</strong>营销全链路 AI 应用体系建设，独立完成业务诊断 → 场景设计 → 大模型选型与接入 → 智能体 / Skill 研发 → 效果度量 → 迭代运营全闭环，累计落地 <strong style="color:var(--green)">10个</strong> 企业级 AI 应用，覆盖市场拓展、客户拜访、项目推进、招投标、知识赋能五大核心场景，全部稳定上线运行。</div>
+      <ul class="job-bullets">
+        <li><strong>安全市场空间体系</strong>&nbsp;—&nbsp;设计"数据采集—AI治理—用户分层—场景落地"四层架构，主导公司级平台产品化落地，推动 <strong style="color:var(--green)">2000w+ 商机转化</strong><span class="tag tag-gold">🏆 年度卓越案例</span></li>
+        <li><strong>客户画像</strong>&nbsp;—&nbsp;构建多维画像生成链路，实现"一句指令→3分钟全方位画像"，移动端可用，销售拜访标配工具</li>
+        <li><strong>客户对练</strong>&nbsp;—&nbsp;设计角色扮演式 AI 训练场景，模拟真实客户类型与应对策略，支持移动端随时练习</li>
+        <li><strong>AI 招投标全流程</strong>&nbsp;—&nbsp;端到端覆盖标前诊断→招标解析→标书生成，人效提升 <strong style="color:var(--green)">30倍</strong><span class="tag tag-gold">🏆 AI金点子</span><span class="tag tag-gold">🏆 卓越案例</span></li>
+        <li><strong>知识 AI 助手</strong>&nbsp;—&nbsp;基于 RAG 构建 5万+ 文档语义检索，年 PV 30,000+，效率提升 <strong style="color:var(--green)">100倍</strong>，获评最喜爱 AI 助理</li>
+        <li><strong>售前数字员工</strong>&nbsp;—&nbsp;专属智能售前专家，7×24h 在线，月均 PV 10,000+，好评率 &gt;85%<span class="tag tag-green">🥇 年度创新标杆</span></li>
+        <li><strong>销售数字员工</strong>&nbsp;—&nbsp;整合全流程 Skill 综合平台，覆盖项目推进关键节点，月均 PV 1,000+<span class="tag tag-green">🥇 部门创新标杆</span></li>
+        <li><strong>助理数字员工</strong>&nbsp;—&nbsp;区域助理专属 AI 小助理，处理待办与经营数据查询，7×24h 在线</li>
+        <li><strong>渠道数字员工</strong>&nbsp;—&nbsp;面向渠道伙伴定制售前专家版本，月均 PV 2,000+<span class="tag tag-green">🥇 部门创新标杆</span></li>
+      </ul>
+    </div>
+
+    <!-- 海康威视 -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">数字化产品经理</span>
+        <span class="job-time">2021.12 — 2023.04</span>
+      </div>
+      <div class="job-company">海康威视股份有限公司 · 技术中心</div>
+      <div class="job-summary">主导 ITR 核心平台全生命周期管理（400 智能客服、工单/备件/问题管理系统），负责智能派单、备件可视化追踪等核心功能设计。</div>
+      <ul class="job-bullets">
+        <li>故障响应时间缩短 <strong style="color:var(--green)">30%</strong>，工单处理效率提升 <strong style="color:var(--green)">40%</strong>，问题一次性解决率提升至 <strong style="color:var(--green)">92%</strong></li>
+        <li>搭建 ITR 数据看板与分析模型，推动智能推荐解决方案持续迭代<span class="tag tag-green">🥈 创新标杆案例</span></li>
+      </ul>
+    </div>
+
+    <!-- 数字浙江 -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-role">数字化产品经理</span>
+        <span class="job-time">2019.01 — 2021.12</span>
+      </div>
+      <div class="job-company">数字浙江（阿里巴巴合作项目）· 研发中心-政务产线</div>
+      <div class="job-summary">参与浙江省级政务数字化建设，完成信息化项目全周期管理，成功交付 10+ 项目。</div>
+      <ul class="job-bullets">
+        <li>主导 IRS 信息化项目管理平台——全省 <strong style="color:var(--green)">100% 线上申报</strong>，审批效率 ↑ <strong style="color:var(--green)">40%</strong>，档案合规率 <strong style="color:var(--green)">98%</strong><span class="tag tag-green">🥈 省级标杆</span></li>
+        <li>主导多个项目招投标，提升中标率与实施规范性</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AI PROJECTS -->
+  <div class="card">
+    <div class="sec-title">
+      <span class="dot" style="background:#0d9488"></span>核心 AI 项目
+      <span class="en">Projects</span>
+    </div>
+    <div class="proj-desc">2023 年起，主导安恒信息营销全链路 AI 应用矩阵建设，覆盖五大核心业务场景，10+ 企业级 AI 应用全部上线稳定运行。点击下方链接查看完整项目演示与数据成果：</div>
+    <a class="proj-link" href="https://lpllonglong520.github.io/ai-marketing-site/" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      查看我主导的企业级 AI 产品介绍
+    </a>
+  </div>
+</div>
+
+<!-- ═══ RIGHT COLUMN ═══ -->
+<div>
+
+  <!-- EDUCATION -->
+  <div class="side-card">
+    <div class="side-title">教育背景</div>
+    <div class="edu-item">
+      <div class="edu-line">
+        <span class="edu-major">计算机应用技术 · 学硕</span>
+        <span class="edu-year">2017.09 — 2020.05</span>
+        <span class="edu-school">西安邮电大学（全日制）</span>
+      </div>
+      <div class="edu-detail">陕西省网络数据分析与智能处理重点实验室 · 核心期刊论文 2 篇</div>
+    </div>
+    <div class="edu-item" style="padding-top:12px;border-top:1px solid var(--rule-light)">
+      <div class="edu-line">
+        <span class="edu-major">计算机科学与技术 · 本科</span>
+        <span class="edu-year">2013.09 — 2017.06</span>
+        <span class="edu-school">延安大学（全日制）</span>
+      </div>
+      <div class="edu-detail">绩点年级前 5% · 国家奖学金 · 校级三好学生</div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="side-card">
+    <div class="side-title">技术栈</div>
+    <div class="skill-group">
+      <div class="skill-cat">AI 应用</div>
+      <div class="skill-tags">
+        <span class="s-tag s-primary">Coze</span><span class="s-tag s-primary">Kimi</span>
+        <span class="s-tag s-primary">DeepSeek</span><span class="s-tag s-primary">千问</span>
+        <span class="s-tag s-secondary">钉钉AI助理</span><span class="s-tag s-secondary">纳米AI</span>
+        <span class="s-tag s-secondary">智谱</span><span class="s-tag s-secondary">豆包</span>
+        <span class="s-tag s-secondary">ima</span><span class="s-tag s-secondary">即梦</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">AI 技术</div>
+      <div class="skill-tags">
+        <span class="s-tag s-primary">LLM</span><span class="s-tag s-primary">RAG</span>
+        <span class="s-tag s-primary">智能体</span><span class="s-tag s-primary">MCP</span>
+        <span class="s-tag s-secondary">Transformer</span><span class="s-tag s-secondary">Prompt Engineering</span>
+        <span class="s-tag s-secondary">知识图谱</span><span class="s-tag s-secondary">微调</span>
+        <span class="s-tag s-secondary">Token</span><span class="s-tag s-secondary">Skills</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">产品 / 数据</div>
+      <div class="skill-tags">
+        <span class="s-tag s-secondary">Axure</span><span class="s-tag s-secondary">帆软BI</span>
+        <span class="s-tag s-secondary">Visio / Xmind</span><span class="s-tag s-secondary">敏捷开发</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-cat">工程 / 内容</div>
+      <div class="skill-tags">
+        <span class="s-tag s-secondary">MD驱动构建</span><span class="s-tag s-secondary">Python</span>
+        <span class="s-tag s-secondary">云端部署</span><span class="s-tag s-secondary">HTML/CSS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HONORS -->
+  <div class="side-card">
+    <div class="side-title">荣誉与认证</div>
+    <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">公司级 AI 金点子 · 卓越案例</div><div class="honor-from">安恒信息 · 招投标 AI</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">2024 年 AI 案例集 NO.1</div><div class="honor-from">安恒信息全公司评选</div></div></div>
+    <div class="honor-item"><span class="honor-icon">⭐</span><div><div class="honor-text">年度创新标杆（3 项）</div><div class="honor-from">安恒信息 · 售前/销售/渠道</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">2024、2025 连续 2 年优秀员工</div><div class="honor-from">安恒信息部门级</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🥈</span><div><div class="honor-text">年度数字化创新标杆案例</div><div class="honor-from">海康威视集团级 · ITR 系统</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🏛️</span><div><div class="honor-text">政务数字化标杆案例</div><div class="honor-from">浙江省级 · IRS 平台</div></div></div>
+    <div class="honor-item"><span class="honor-icon">📜</span><div><div class="honor-text">人工智能训练师（四级）</div><div class="honor-from">工业和信息化部认定</div></div></div>
+    <div class="honor-item" style="border:none"><span class="honor-icon">🎯</span><div><div class="honor-text">数字化解决方案设计师</div><div class="honor-from">杭州市第 8 名 · 浙江省第 15 名</div></div></div>
+  </div>
+
+  <!-- SELF EVALUATION -->
+  <div class="side-card">
+    <div class="side-title">自我评价</div>
+    <div class="eval-text">6 年+ 企业级数字化产品经验，3 年+ 深耕企业级 AI 场景化落地，擅长将业务痛点转化为可落地的 AI 产品。具备从 0 到 1 主导 AI 项目的完整能力——<br>业务调研、场景设计、大模型选型与接入、智能体/skill研发、效果量化/测评、迭代运营——多个项目已在真实业务场景中稳定运行并持续迭代，形成可复用的 AI 产品方法论。</div>
+  </div>
+
+</div>
+</div>
+
+</div>
+</body>
+</html>
