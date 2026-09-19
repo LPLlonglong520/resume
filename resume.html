@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>刘佩龙 · AI产品经理</title>
+<title>刘佩龙 · AI产品经理 · LLM/RAG/Agent 企业落地</title>
 <style>
   :root{
     --ink:#0f172a;--ink-soft:#334155;--muted:#64748b;--faint:#94a3b8;
@@ -46,6 +46,8 @@
   .header-contact{display:flex;flex-wrap:wrap;gap:6px 20px}
   .header-contact span{font-size:.82rem;color:rgba(255,255,255,.7);display:flex;align-items:center;gap:5px}
   .header-contact svg{width:14px;height:14px;opacity:.6;flex-shrink:0}
+  .header-contact a{color:inherit;text-decoration:none;border-bottom:1px dashed rgba(255,255,255,.25)}
+  .header-contact a:hover{color:#fff;border-bottom-color:rgba(255,255,255,.6)}
 
   .kpi-row{display:flex;gap:2px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden;flex-shrink:0}
   .kpi-item{padding:16px 22px;text-align:center;min-width:90px;border-right:1px solid rgba(255,255,255,.08)}
@@ -83,7 +85,7 @@
 
   .job-bullets{list-style:none;position:relative;padding-left:20px}
   .job-bullets li{
-    font-size:.82rem;color:var(--ink-soft);line-height:1.75;position:relative;padding-bottom:4px;
+    font-size:.82rem;color:var(--ink-soft);line-height:1.75;position:relative;padding-bottom:6px;
   }
   .job-bullets li::before{
     content:'';position:absolute;left:-20px;top:9px;width:6px;height:6px;
@@ -91,10 +93,13 @@
   }
   .job-bullets li::after{
     content:'';position:absolute;left:-18px;top:15px;width:1.5px;
-    height:calc(100% + 4px);background:var(--rule-light)
+    height:calc(100% + 6px);background:var(--rule-light)
   }
   .job-bullets li:last-child::after{display:none}
   .job-bullets strong{color:var(--ink);font-weight:600}
+
+  .note{font-size:.7rem;color:var(--faint);font-weight:400;margin-left:2px}
+  .note::before{content:'· ';opacity:.6}
 
   .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:1px 7px;border-radius:10px;margin-left:3px;vertical-align:middle;line-height:1.6}
   .tag-gold{background:var(--gold-soft);color:var(--gold)}
@@ -102,13 +107,9 @@
 
   /* Projects card */
   .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:12px}
-  .proj-link{
-    display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;
-    color:var(--accent);background:var(--accent-soft);padding:7px 16px;border-radius:8px;
-    text-decoration:none;transition:all .15s;letter-spacing:.02em;
-  }
-  .proj-link:hover{background:#bfdbfe;color:var(--accent-deep)}
-  .proj-link svg{width:14px;height:14px}
+  .proj-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+  .proj-pill{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--ink-soft);background:var(--bg);padding:7px 10px;border-radius:8px}
+  .proj-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:.6;flex-shrink:0}
 
   /* ═══════════ RIGHT COLUMN ═══════════ */
   .side-card{
@@ -148,7 +149,10 @@
   .honor-from{font-size:.7rem;color:var(--faint);margin-top:1px}
 
   /* Self eval */
-  .eval-text{font-size:.8rem;color:var(--muted);line-height:1.8}
+  .eval-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px dashed var(--rule-light)}
+  .eval-item:last-child{border-bottom:none}
+  .eval-label{font-size:.74rem;font-weight:700;color:var(--accent-deep);white-space:nowrap;padding-top:2px;flex-shrink:0;min-width:74px}
+  .eval-text{font-size:.78rem;color:var(--ink-soft);line-height:1.7}
 
   /* ═══════════ PRINT ═══════════ */
   @media print{
@@ -173,6 +177,7 @@
     .header{padding:24px 20px}
     .header-name{font-size:1.5rem}
     .page{padding:12px 8px 24px}
+    .proj-list{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -184,18 +189,19 @@
   <div class="header-row">
     <div class="header-main">
       <div class="header-name">刘佩龙</div>
-      <div class="header-role">AI 产品经理 &nbsp;·&nbsp; 企业级 AI 解决方案</div>
+      <div class="header-role">AI 产品经理 &nbsp;·&nbsp; LLM / RAG / Agent 企业落地</div>
       <div class="header-contact">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1993年 · 6年+ 产品经验</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1993年 · 6年+ 产品经验 · 3年+ AI落地</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.8 19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.93 2.84 2 2 0 012 .84h3a2 2 0 012 1.72"/></svg>133-3601-1475</span>
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>杭州</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>3年+ AI 产品落地</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/></svg><a href="https://github.com/lpllonglong520" target="_blank">github.com/lpllonglong520</a></span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>1412604317@qq.com</span>
       </div>
     </div>
     <div class="kpi-row">
-      <div class="kpi-item"><span class="kpi-num">5+</span><span class="kpi-label">全场景业务流</span></div>
       <div class="kpi-item"><span class="kpi-num">10+</span><span class="kpi-label">AI 应用上线</span></div>
-      <div class="kpi-item"><span class="kpi-num">8</span><span class="kpi-label">荣誉认定</span></div>
+      <div class="kpi-item"><span class="kpi-num">4</span><span class="kpi-label">数字员工矩阵</span></div>
+      <div class="kpi-item"><span class="kpi-num">10,335</span><span class="kpi-label">公网累计 PV</span></div>
     </div>
   </div>
 </div>
@@ -216,21 +222,21 @@
     <!-- 安恒信息 -->
     <div class="job">
       <div class="job-header">
-        <span class="job-role">AI 应用产品经理</span>
+        <span class="job-role">AI 应用产品经理（营销）</span>
         <span class="job-time">2023.05 — 至今</span>
       </div>
       <div class="job-company">安恒信息技术股份有限公司 · 营销中心</div>
-      <div class="job-summary"><strong style="color:var(--ink)">从0到1主导</strong>营销全链路 AI 应用体系建设，独立完成业务诊断 → 场景设计 → 大模型选型与接入 → 智能体 / Skill 研发 → 效果度量 → 迭代运营全闭环，累计落地 <strong style="color:var(--green)">10个</strong> 企业级 AI 应用，覆盖市场拓展、客户拜访、项目推进、招投标、知识赋能五大核心场景，全部稳定上线运行。</div>
+      <div class="job-summary"><strong style="color:var(--ink)">从 0 到 1 主导</strong>营销全链路 AI 应用体系建设，独立完成业务诊断 → 场景设计 → 大模型选型与接入 → 智能体 / Skill 研发 → 效果度量 → 迭代运营全闭环。累计落地 <strong style="color:var(--green)">10 个</strong>企业级 AI 应用、<strong style="color:var(--green)">4 类数字员工</strong>，覆盖市场拓展 / 客户拜访 / 项目推进 / 招投标 / 知识赋能五大核心场景，全部稳定上线并持续运营至今。</div>
       <ul class="job-bullets">
-        <li><strong>安全市场空间体系</strong>&nbsp;—&nbsp;设计"数据采集—AI治理—用户分层—场景落地"四层架构，主导公司级平台产品化落地，推动 <strong style="color:var(--green)">2000w+ 商机转化</strong><span class="tag tag-gold">🏆 年度卓越案例</span></li>
-        <li><strong>客户画像</strong>&nbsp;—&nbsp;构建多维画像生成链路，实现"一句指令→3分钟全方位画像"，移动端可用，销售拜访标配工具</li>
-        <li><strong>客户对练</strong>&nbsp;—&nbsp;设计角色扮演式 AI 训练场景，模拟真实客户类型与应对策略，支持移动端随时练习</li>
-        <li><strong>AI 招投标全流程</strong>&nbsp;—&nbsp;端到端覆盖标前诊断→招标解析→标书生成，人效提升 <strong style="color:var(--green)">30倍</strong><span class="tag tag-gold">🏆 AI金点子</span><span class="tag tag-gold">🏆 卓越案例</span></li>
-        <li><strong>知识 AI 助手</strong>&nbsp;—&nbsp;基于 RAG 构建 5万+ 文档语义检索，年 PV 30,000+，效率提升 <strong style="color:var(--green)">100倍</strong>，获评最喜爱 AI 助理</li>
-        <li><strong>售前数字员工</strong>&nbsp;—&nbsp;专属智能售前专家，7×24h 在线，月均 PV 10,000+，好评率 &gt;85%<span class="tag tag-green">🥇 年度创新标杆</span></li>
-        <li><strong>销售数字员工</strong>&nbsp;—&nbsp;整合全流程 Skill 综合平台，覆盖项目推进关键节点，月均 PV 1,000+<span class="tag tag-green">🥇 部门创新标杆</span></li>
-        <li><strong>助理数字员工</strong>&nbsp;—&nbsp;区域助理专属 AI 小助理，处理待办与经营数据查询，7×24h 在线</li>
-        <li><strong>渠道数字员工</strong>&nbsp;—&nbsp;面向渠道伙伴定制售前专家版本，月均 PV 2,000+<span class="tag tag-green">🥇 部门创新标杆</span></li>
+        <li><strong>AI 市场情报体系</strong>&nbsp;—&nbsp;设计"采集→AI治理→用户分层→场景落地"四层架构，推动 <strong style="color:var(--green)">2000w+ 商机转化</strong><span class="note">标讯平台 AI 推荐落地的合同金额汇总</span><span class="tag tag-gold">🏆 年度卓越案例</span></li>
+        <li><strong>AI 招投标全流程</strong>&nbsp;—&nbsp;端到端覆盖标前诊断→招标解析→标书生成，人效 <strong style="color:var(--green)">30 倍</strong><span class="note">4 小时/标书 → AI 12 分钟/标书，3 人对比组</span><span class="tag tag-gold">🏆 AI 金点子</span><span class="tag tag-gold">🏆 卓越案例</span></li>
+        <li><strong>知识 AI 助手</strong>&nbsp;—&nbsp;基于 RAG 构建 5万+ 文档语义检索，<strong style="color:var(--green)">年 PV 30,000+</strong><span class="note">2024 全年统计，含检索/问答/上传解析</span>，检索效率 <strong style="color:var(--green)">20 倍</strong><span class="note">分钟级人工检索 vs 秒级语义检索</span>，获评最喜爱 AI 助理</li>
+        <li><strong>售前数字员工</strong>&nbsp;—&nbsp;专属智能售前专家 7×24h 在线，<strong style="color:var(--green)">月均 PV 10,000+</strong><span class="note">月环比 +15%，好评率 &gt;85%</span><span class="tag tag-green">🥇 年度创新标杆</span></li>
+        <li><strong>销售数字员工</strong>&nbsp;—&nbsp;整合 Skill 平台，覆盖项目推进关键节点，<strong style="color:var(--green)">月均 PV 1,000+</strong><span class="tag tag-green">🥇 部门创新标杆</span></li>
+        <li><strong>助理 / 渠道数字员工</strong>&nbsp;—&nbsp;区域助理 AI 助理 + 渠道伙伴定制版，月均 PV <strong style="color:var(--green)">2,000+</strong><span class="tag tag-green">🥇 部门创新标杆</span></li>
+        <li><strong>客户画像 Skill</strong>&nbsp;—&nbsp;融合 OA 合同 + 标讯 API + 产品白皮书知识库三大数据源，"一句指令 → 3 分钟全方位画像"，已用于浙江大学等客户分析</li>
+        <li><strong>公开展示页运营</strong>&nbsp;—&nbsp;建设并运营 GitHub Pages 公网展示页（5 场景 + 知识 AI 助手），统计区间 2026.5–08：<strong style="color:var(--green)">PV 10,335 / UV 3,342 / 工作日日均 122</strong></li>
+        <li><strong>持续学习</strong>&nbsp;—&nbsp;2025 起系统学习 AI 基础知识（覆盖国内外大模型与 AI 应用），同步备考软考·信息系统项目管理师</li>
       </ul>
     </div>
 
@@ -241,10 +247,11 @@
         <span class="job-time">2021.12 — 2023.04</span>
       </div>
       <div class="job-company">海康威视股份有限公司 · 技术中心</div>
-      <div class="job-summary">主导 ITR 核心平台全生命周期管理（400 智能客服、工单/备件/问题管理系统），负责智能派单、备件可视化追踪等核心功能设计。</div>
+      <div class="job-summary">主导 ITR 核心平台（400 智能客服 / 工单 / 备件 / 问题管理系统）全生命周期管理，设计智能派单、备件可视化追踪等核心功能，建立集团级服务标准化体系。</div>
       <ul class="job-bullets">
-        <li>故障响应时间缩短 <strong style="color:var(--green)">30%</strong>，工单处理效率提升 <strong style="color:var(--green)">40%</strong>，问题一次性解决率提升至 <strong style="color:var(--green)">92%</strong></li>
-        <li>搭建 ITR 数据看板与分析模型，推动智能推荐解决方案持续迭代<span class="tag tag-green">🥈 创新标杆案例</span></li>
+        <li>故障响应时间缩短 <strong style="color:var(--green)">30%</strong><span class="note">基于工单 SLA 数据，上线前后 6 个月对比</span>，工单处理效率 ↑ <strong style="color:var(--green)">40%</strong><span class="note">人均日处理工单数对比</span></li>
+        <li>问题一次性解决率提升至 <strong style="color:var(--green)">92%</strong><span class="note">基于 10w+ 工单关闭标签统计</span><span class="tag tag-green">🥈 集团创新标杆案例</span></li>
+        <li>搭建 ITR 数据看板 + 智能推荐解决方案，推动平台持续迭代</li>
       </ul>
     </div>
 
@@ -254,11 +261,11 @@
         <span class="job-role">数字化产品经理</span>
         <span class="job-time">2019.01 — 2021.12（含实习）</span>
       </div>
-      <div class="job-company">数字浙江（阿里巴巴合作项目）· 研发中心-政务产线</div>
-      <div class="job-summary">参与浙江省级政务数字化建设，完成信息化项目全周期管理，成功交付 10+ 项目。</div>
+      <div class="job-company">数字浙江（阿里巴巴合作项目）· 政务产线</div>
+      <div class="job-summary">浙江省级政务数字化建设，主导信息化项目管理平台（IRS），覆盖"申报→评审→立项→建设→验收→绩效评价→档案管理"全流程；同步参与多个厅局委办数字化项目交付。</div>
       <ul class="job-bullets">
-        <li>主导 IRS 信息化项目管理平台——全省 <strong style="color:var(--green)">100% 线上申报</strong>，审批效率 ↑ <strong style="color:var(--green)">40%</strong>，档案合规率 <strong style="color:var(--green)">98%</strong><span class="tag tag-green">🥈 省级标杆</span></li>
-        <li>主导多个项目招投标，提升中标率与实施规范性</li>
+        <li>IRS 平台：全省 <strong style="color:var(--green)">100% 线上申报</strong><span class="note">覆盖省市县三级</span>，审批效率 ↑ <strong style="color:var(--green)">40%</strong><span class="note">平均审批时长 14 天 → 8 天</span>，档案合规率 <strong style="color:var(--green)">98%</strong><span class="note">基于审计抽样核查</span><span class="tag tag-green">🥈 省级标杆</span></li>
+        <li>主导 10+ 厅局数字化项目招投标与交付，提升中标率与实施规范性</li>
       </ul>
     </div>
   </div>
@@ -266,14 +273,21 @@
   <!-- AI PROJECTS -->
   <div class="card">
     <div class="sec-title">
-      <span class="dot" style="background:#0d9488"></span>核心 AI 项目
+      <span class="dot" style="background:#0d9488"></span>核心 AI 项目矩阵
       <span class="en">Projects</span>
     </div>
-    <div class="proj-desc">2023 年起，主导安恒信息营销全链路 AI 应用矩阵建设，覆盖五大核心业务场景，10+ 企业级 AI 应用全部上线稳定运行。点击下方链接查看完整项目演示与数据成果：</div>
-    <a class="proj-link" href="https://lpllonglong520.github.io/ai-marketing-site/" target="_blank">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      查看我主导的企业级 AI 产品介绍
-    </a>
+    <div class="proj-desc">2023 年起主导安恒营销全链路 AI 应用矩阵建设，10+ 企业级 AI 应用全部上线稳定运行；4 类数字员工矩阵化覆盖售前 / 销售 / 助理 / 渠道四大角色，持续迭代运营中。</div>
+    <div class="proj-list">
+      <div class="proj-pill">AI 市场情报平台</div>
+      <div class="proj-pill">AI 招投标全流程</div>
+      <div class="proj-pill">知识 AI 助手（RAG）</div>
+      <div class="proj-pill">客户画像 Skill</div>
+      <div class="proj-pill">售前数字员工</div>
+      <div class="proj-pill">销售数字员工</div>
+      <div class="proj-pill">助理数字员工</div>
+      <div class="proj-pill">渠道数字员工</div>
+    </div>
+    <div class="proj-desc" style="margin-top:14px;font-size:.76rem;color:var(--faint)">📦 产品演示与详细资料可现场提供 · 公网展示页按需邮件发送截图与指标看板</div>
   </div>
 </div>
 
@@ -289,7 +303,7 @@
         <span class="edu-year">2017.09 — 2020.05</span>
         <span class="edu-school">西安邮电大学（全日制）</span>
       </div>
-      <div class="edu-detail">陕西省网络数据分析与智能处理重点实验室 · 核心期刊论文 2 篇</div>
+      <div class="edu-detail">陕西省网络数据分析与智能处理重点实验室 · 核心期刊论文 2 篇 · 主修 NLP / 神经网络 / 主题建模</div>
     </div>
     <div class="edu-item" style="padding-top:12px;border-top:1px solid var(--rule-light)">
       <div class="edu-line">
@@ -305,37 +319,40 @@
   <div class="side-card">
     <div class="side-title">技术栈</div>
     <div class="skill-group">
-      <div class="skill-cat">AI 应用</div>
+      <div class="skill-cat">AI 技术（核心）</div>
       <div class="skill-tags">
-        <span class="s-tag s-primary">Coze</span><span class="s-tag s-primary">Kimi</span>
-        <span class="s-tag s-primary">DeepSeek</span><span class="s-tag s-primary">千问</span>
-        <span class="s-tag s-secondary">钉钉AI助理</span><span class="s-tag s-secondary">纳米AI</span>
-        <span class="s-tag s-secondary">智谱</span><span class="s-tag s-secondary">豆包</span>
-        <span class="s-tag s-secondary">ima</span><span class="s-tag s-secondary">即梦</span>
+        <span class="s-tag s-primary">LLM</span><span class="s-tag s-primary">RAG</span>
+        <span class="s-tag s-primary">Agent</span><span class="s-tag s-primary">MCP</span>
+        <span class="s-tag s-primary">Prompt Engineering</span><span class="s-tag s-primary">Vector DB</span>
+        <span class="s-tag s-secondary">Embedding</span><span class="s-tag s-secondary">Transformer</span>
+        <span class="s-tag s-secondary">微调</span><span class="s-tag s-secondary">Token</span>
+        <span class="s-tag s-secondary">知识图谱</span><span class="s-tag s-secondary">Skills</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-cat">AI 技术</div>
+      <div class="skill-cat">AI 应用 / 平台</div>
       <div class="skill-tags">
-        <span class="s-tag s-primary">LLM</span><span class="s-tag s-primary">RAG</span>
-        <span class="s-tag s-primary">智能体</span><span class="s-tag s-primary">MCP</span>
-        <span class="s-tag s-secondary">Transformer</span><span class="s-tag s-secondary">Prompt Engineering</span>
-        <span class="s-tag s-secondary">知识图谱</span><span class="s-tag s-secondary">微调</span>
-        <span class="s-tag s-secondary">Token</span><span class="s-tag s-secondary">Skills</span>
+        <span class="s-tag s-primary">Coze / 扣子</span><span class="s-tag s-primary">千问</span>
+        <span class="s-tag s-secondary">DeepSeek</span><span class="s-tag s-secondary">Kimi</span>
+        <span class="s-tag s-secondary">智谱</span><span class="s-tag s-secondary">钉钉AI助理</span>
+        <span class="s-tag s-secondary">纳米AI</span><span class="s-tag s-secondary">豆包</span>
+        <span class="s-tag s-secondary">ima</span><span class="s-tag s-secondary">即梦</span>
       </div>
     </div>
     <div class="skill-group">
       <div class="skill-cat">产品 / 数据</div>
       <div class="skill-tags">
         <span class="s-tag s-secondary">Axure</span><span class="s-tag s-secondary">帆软BI</span>
-        <span class="s-tag s-secondary">Visio / Xmind</span><span class="s-tag s-secondary">敏捷开发</span>
+        <span class="s-tag s-secondary">Xmind / Visio</span><span class="s-tag s-secondary">敏捷开发</span>
+        <span class="s-tag s-secondary">用户调研</span><span class="s-tag s-secondary">数据分析</span>
       </div>
     </div>
     <div class="skill-group">
-      <div class="skill-cat">工程 / 内容</div>
+      <div class="skill-cat">工程化</div>
       <div class="skill-tags">
-        <span class="s-tag s-secondary">MD驱动构建</span><span class="s-tag s-secondary">Python</span>
-        <span class="s-tag s-secondary">云端部署</span><span class="s-tag s-secondary">HTML/CSS</span>
+        <span class="s-tag s-secondary">Python</span><span class="s-tag s-secondary">Git</span>
+        <span class="s-tag s-secondary">MD驱动构建</span><span class="s-tag s-secondary">云端部署</span>
+        <span class="s-tag s-secondary">HTML / CSS</span>
       </div>
     </div>
   </div>
@@ -343,20 +360,37 @@
   <!-- HONORS -->
   <div class="side-card">
     <div class="side-title">荣誉与认证</div>
-    <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">公司级 AI 金点子 · 卓越案例</div><div class="honor-from">安恒信息 · 招投标 AI</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">公司级 AI 金点子 · 卓越案例</div><div class="honor-from">安恒信息 · AI 招投标</div></div></div>
     <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">2024 年 AI 案例集 NO.1</div><div class="honor-from">安恒信息全公司评选</div></div></div>
-    <div class="honor-item"><span class="honor-icon">⭐</span><div><div class="honor-text">年度创新标杆（3 项）</div><div class="honor-from">安恒信息 · 售前/销售/渠道</div></div></div>
+    <div class="honor-item"><span class="honor-icon">⭐</span><div><div class="honor-text">年度创新标杆（3 项）</div><div class="honor-from">安恒信息 · 售前 / 销售 / 渠道数字员工</div></div></div>
     <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">2024、2025 连续 2 年优秀员工</div><div class="honor-from">安恒信息部门级</div></div></div>
     <div class="honor-item"><span class="honor-icon">🥈</span><div><div class="honor-text">年度数字化创新标杆案例</div><div class="honor-from">海康威视集团级 · ITR 系统</div></div></div>
     <div class="honor-item"><span class="honor-icon">🏛️</span><div><div class="honor-text">政务数字化标杆案例</div><div class="honor-from">浙江省级 · IRS 平台</div></div></div>
     <div class="honor-item"><span class="honor-icon">📜</span><div><div class="honor-text">人工智能训练师（四级）</div><div class="honor-from">工业和信息化部认定</div></div></div>
-    <div class="honor-item" style="border:none"><span class="honor-icon">🎯</span><div><div class="honor-text">数字化解决方案设计师</div><div class="honor-from">杭州市第 8 名 · 浙江省第 15 名</div></div></div>
+    <div class="honor-item"><span class="honor-icon">🎯</span><div><div class="honor-text">数字化解决方案设计师</div><div class="honor-from">杭州市第 8 名 · 浙江省第 15 名</div></div></div>
+    <div class="honor-item"><span class="honor-icon">📚</span><div><div class="honor-text">信息系统项目管理师（备考中）</div><div class="honor-from">软考 · 2026.05 已考完 · 等成绩</div></div></div>
+    <div class="honor-item" style="border:none"><span class="honor-icon">🧠</span><div><div class="honor-text">AI 基础知识系统学习</div><div class="honor-from">2025 起 · 覆盖国内外大模型与 AI 应用全景</div></div></div>
   </div>
 
   <!-- SELF EVALUATION -->
   <div class="side-card">
     <div class="side-title">自我评价</div>
-    <div class="eval-text">6 年+ 企业级数字化产品经验，3 年+ 深耕企业级 AI 场景化落地，擅长将业务痛点转化为可落地的 AI 产品。具备从 0 到 1 主导 AI 项目的完整能力——<br>业务调研、场景设计、大模型选型与接入、智能体/skill研发、效果量化/测评、迭代运营——多个项目已在真实业务场景中稳定运行并持续迭代，形成可复用的 AI 产品方法论。</div>
+    <div class="eval-item">
+      <span class="eval-label">产品方法论</span>
+      <span class="eval-text">用户调研 → 场景拆解 → MVP → 指标体系 → 灰度 → 复盘；多个项目用此闭环从 0 到 1 上线并稳定运营。</span>
+    </div>
+    <div class="eval-item">
+      <span class="eval-label">技术理解</span>
+      <span class="eval-text">能独立完成 LLM 选型 / Prompt 调优 / RAG 搭建 / Agent 编排 / Skill 设计，能与算法、研发用同一种语言对话。</span>
+    </div>
+    <div class="eval-item">
+      <span class="eval-label">业务导向</span>
+      <span class="eval-text">把"AI 能力"翻译成"业务 ROI"——以业务结果与一线用户反馈为锚，避免技术自嗨，所有项目均挂真实业务指标。</span>
+    </div>
+    <div class="eval-item" style="border-bottom:none">
+      <span class="eval-label">学习与韧性</span>
+      <span class="eval-text">3 年完成从"传统数字化 PM"到"AI 产品经理"的完整转型，持续学习国内外 AI 技术与产品实践，保持对前沿的高敏感度。</span>
+    </div>
   </div>
 
 </div>
