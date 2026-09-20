@@ -104,6 +104,17 @@
   .tag-gold{background:var(--gold-soft);color:var(--gold)}
   .tag-green{background:var(--green-soft);color:var(--green)}
 
+  /* Standee image (营销AI小秘立牌图) */
+  .standee-wrap{text-align:center;margin-top:10px}
+  .standee{
+    display:inline-block;width:100%;max-width:430px;
+    background:#fff;border:1px solid var(--rule);border-radius:10px;
+    box-shadow:0 2px 10px rgba(30,58,95,.08);
+  }
+  @media print{
+    .standee{max-width:88%;break-inside:avoid;page-break-inside:avoid}
+  }
+
   /* Projects card */
   .proj-desc{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:12px}
   .proj-link{
@@ -250,14 +261,9 @@
       </div>
       <div class="job-company">安恒信息技术股份有限公司 · 营销中心</div>
       <div class="job-summary"><strong style="color:var(--ink)">从 0 到 1 搭建</strong>安恒营销中心全链路 AI 应用体系，沿营销全业务流（机会点 → 客户 → 商机 → 招投标 → 合同 → 交付 → 收入 → 售后 → 日常）系统梳理，累计落地 <strong style="color:var(--green)">9 大场景</strong>（8 业务 + 1 日常）、<strong style="color:var(--green)">28+ 项 AI 能力</strong>，建成 <strong style="color:var(--green)">7×24 小时销售在线的「超级数字员工」</strong>。</div>
-      <ul class="job-bullets">
-        <li><strong>机会洞察</strong>&nbsp;—&nbsp;汇聚公开标讯、行业机会、峰会机会并智能筛选分发，解决"机会散落各处、一线销售拿不到用不上"的痛点，推动 <strong style="color:var(--green)">2000w+ 商机转化</strong><span class="tag tag-gold">🏆 年度卓越案例</span></li>
-        <li><strong>客户经营</strong>&nbsp;—&nbsp;客户 360° 画像（一句指令→3分钟全方位画像）+ 公开/内部信息查询 + 拜访语音录入 + 客户 AI 对练，解决"客户信息零散、拜访前准备不足"</li>
-        <li><strong>商机推进</strong>&nbsp;—&nbsp;机会点运营、投标单生成、新建商机与推进记录自动化，替代手工重复录入，覆盖项目推进关键节点<span class="tag tag-green">🥇 部门创新标杆</span></li>
-        <li><strong>招投标攻坚</strong>&nbsp;—&nbsp;方案初稿生成、招投标人员/历史资质查询、标书解析·检查·查重、产品价格查询，告别"写方案找资料靠翻"，人效提升 <strong style="color:var(--green)">30倍</strong><span class="tag tag-gold">🏆 AI金点子</span><span class="tag tag-gold">🏆 卓越案例</span></li>
-        <li><strong>交付与经营</strong>&nbsp;—&nbsp;排产/发货查询、业绩预测、经营指标全景看板、回款/逾期提醒，终结"数据滞后只能靠人追"</li>
-        <li><strong>日常工作 · 跨场景</strong>&nbsp;—&nbsp;知识 AI 助手（5万+ 文档 RAG 检索，效率提升 <strong style="color:var(--green)">100倍</strong>）、资料下发、产品组合话术、行业打法查阅、公司标讯查找，7×24h 在线的「超级数字员工」<span class="tag tag-green">🥇 年度创新标杆</span></li>
-      </ul>
+      <div class="standee-wrap">
+        <img src="standee.png" alt="营销AI小秘 · 超级数字员工全景图" class="standee">
+      </div>
     </div>
 
     <!-- 海康威视 -->
