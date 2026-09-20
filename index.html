@@ -69,12 +69,12 @@
 
   /* ═══════════ LEFT COLUMN ═══════════ */
   .card{
-    background:linear-gradient(150deg,#ffffff 55%,#eef4ff 100%);
+    background:linear-gradient(150deg,#eaf2ff 0%,#fdfefe 55%,#f4f9ff 100%);
     border-radius:var(--radius);
-    border:1px solid var(--rule);padding:20px 26px;margin-bottom:14px;
+    border:1px solid #dce7f5;padding:20px 26px;margin-bottom:14px;
     box-shadow:var(--shadow);
   }
-  .card-projects{background:linear-gradient(150deg,#ffffff 55%,#eafaf6 100%)}
+  .card-projects{background:linear-gradient(150deg,#e2f6f0 0%,#fdfefe 55%,#f0fbf7 100%);border-color:#d5ece5}
 
   /* Work experience timeline */
   .job{margin-bottom:24px;position:relative}
@@ -116,15 +116,15 @@
 
   /* ═══════════ RIGHT COLUMN ═══════════ */
   .side-card{
-    background:linear-gradient(150deg,#ffffff 55%,#f1f5fb 100%);
+    background:linear-gradient(150deg,#f2f6fc 0%,#fdfefe 55%,#f7fafd 100%);
     border-radius:var(--radius);
-    border:1px solid var(--rule);padding:18px 20px;margin-bottom:12px;
+    border:1px solid #dfe8f3;padding:18px 20px;margin-bottom:12px;
     box-shadow:var(--shadow);
   }
-  .side-edu{background:linear-gradient(150deg,#ffffff 55%,#eef4ff 100%)}
-  .side-skills{background:linear-gradient(150deg,#ffffff 55%,#f4f1fd 100%)}
-  .side-honors{background:linear-gradient(150deg,#ffffff 55%,#fdf8ec 100%)}
-  .side-eval{background:linear-gradient(150deg,#ffffff 55%,#e9faf6 100%)}
+  .side-edu{background:linear-gradient(150deg,#e8f0fe 0%,#fdfefe 55%,#f3f8ff 100%);border-color:#d8e5f8}
+  .side-skills{background:linear-gradient(150deg,#efeafa 0%,#fdfefe 55%,#f7f4fd 100%);border-color:#e2d9f3}
+  .side-honors{background:linear-gradient(150deg,#fdf5e0 0%,#fffefb 55%,#fdfaf0 100%);border-color:#f0e4c4}
+  .side-eval{background:linear-gradient(150deg,#e2f6f1 0%,#fdfefe 55%,#f0fbf8 100%);border-color:#d5ece5}
   .side-title{
     font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.06em;
     text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;
@@ -149,14 +149,21 @@
   .s-primary{background:var(--accent-soft);color:var(--accent)}
   .s-secondary{background:var(--bg);color:var(--muted)}
 
-  /* Word cloud (AI 应用) */
-  .cloud{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:16px;row-gap:2px;line-height:2}
-  .cloud span{display:inline-block;white-space:nowrap}
-  .cloud .c-xl{font-size:1.2rem;font-weight:800;color:var(--accent-deep)}
-  .cloud .c-lg{font-size:1.02rem;font-weight:700;color:var(--accent)}
-  .cloud .c-md{font-size:.9rem;font-weight:600;color:#0d9488}
-  .cloud .c-sm{font-size:.8rem;font-weight:500;color:var(--muted)}
-  .cloud .c-xs{font-size:.74rem;font-weight:500;color:var(--faint)}
+  /* Word cloud (AI 应用) — 统一大小 pill，多彩区分 */
+  .cloud{display:flex;flex-wrap:wrap;gap:6px}
+  .cloud span{
+    display:inline-block;white-space:nowrap;
+    font-size:.78rem;font-weight:600;line-height:1.5;
+    padding:4px 12px;border-radius:18px;letter-spacing:.01em;
+  }
+  .w-blue  {background:#e3eeff;color:#2563eb}
+  .w-cyan  {background:#dff5f2;color:#0d9488}
+  .w-purple{background:#ede8fc;color:#7c3aed}
+  .w-green {background:#e2f7e8;color:#15803d}
+  .w-gold  {background:#fdf3d7;color:#b45309}
+  .w-pink  {background:#fde8ef;color:#db2777}
+  .w-orange{background:#ffeedd;color:#c2410c}
+  .w-indigo{background:#e6e9fd;color:#4338ca}
 
   /* Honors */
   .honor-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule-light)}
@@ -215,9 +222,9 @@
       </div>
     </div>
     <div class="kpi-row">
-      <div class="kpi-item"><span class="kpi-num">9</span><span class="kpi-label">业务场景</span></div>
-      <div class="kpi-item"><span class="kpi-num">28+</span><span class="kpi-label">AI 能力上线</span></div>
-      <div class="kpi-item"><span class="kpi-num">8</span><span class="kpi-label">荣誉认定</span></div>
+      <div class="kpi-item"><span class="kpi-num">8</span><span class="kpi-label">大业务场景</span></div>
+      <div class="kpi-item"><span class="kpi-num">28</span><span class="kpi-label">项 AI 能力</span></div>
+      <div class="kpi-item"><span class="kpi-num">22</span><span class="kpi-label">项 AI 应用</span></div>
     </div>
   </div>
 </div>
@@ -291,7 +298,7 @@
       <span class="dot" style="background:#0d9488"></span>核心 AI 项目
       <span class="en">Projects</span>
     </div>
-    <div class="proj-desc">2023 年初起，主导安恒营销全业务流 AI 应用矩阵建设，覆盖 9 大场景、近 30 项 AI 能力，全部上线稳定运行。点击下方查看「超级数字员工」完整介绍：</div>
+    <div class="proj-desc">2023 年初起，主导安恒营销全业务流 AI 应用矩阵建设，覆盖 <strong style="color:var(--ink)">8 大业务场景 · 28 项 AI 能力 · 22 项 AI 应用</strong>，落地 7×24 小时销售在线的「超级数字员工」，全部上线稳定运行。点击下方查看完整介绍：</div>
     <a class="proj-link" href="https://lpllonglong520.github.io/ai-marketing-site/" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
       查看我主导的「超级数字员工」网站
@@ -329,7 +336,7 @@
     <div class="skill-group">
       <div class="skill-cat">AI 应用</div>
       <div class="cloud">
-        <span class="c-xl">DeepSeek</span><span class="c-lg">WorkBuddy</span><span class="c-lg">Cursor</span><span class="c-md">Kimi</span><span class="c-md">千问办公</span><span class="c-md">智谱</span><span class="c-sm">Harness</span><span class="c-sm">Hermes</span><span class="c-sm">OpenDesign</span><span class="c-sm">Obsidian</span><span class="c-sm">Ima</span><span class="c-sm">小云雀</span><span class="c-xs">豆包</span><span class="c-xs">即梦</span><span class="c-xs">可灵</span>
+        <span class="w-blue">DeepSeek</span><span class="w-cyan">WorkBuddy</span><span class="w-purple">Cursor</span><span class="w-green">Kimi</span><span class="w-gold">千问办公</span><span class="w-pink">智谱</span><span class="w-orange">Harness</span><span class="w-indigo">Hermes</span><span class="w-blue">OpenDesign</span><span class="w-cyan">Obsidian</span><span class="w-purple">Ima</span><span class="w-green">小云雀</span><span class="w-gold">豆包</span><span class="w-pink">即梦</span><span class="w-orange">可灵</span>
       </div>
     </div>
     <div class="skill-group">
