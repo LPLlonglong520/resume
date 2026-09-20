@@ -107,12 +107,12 @@
   /* Standee image (营销AI小秘立牌图) */
   .standee-wrap{text-align:center;margin-top:10px}
   .standee{
-    display:inline-block;width:100%;max-width:430px;
+    display:inline-block;width:100%;max-width:360px;
     background:#fff;border:1px solid var(--rule);border-radius:10px;
     box-shadow:0 2px 10px rgba(30,58,95,.08);
   }
   @media print{
-    .standee{max-width:88%;break-inside:avoid;page-break-inside:avoid}
+    .standee{max-width:58%;break-inside:avoid;page-break-inside:avoid}
   }
 
   /* Projects card */
@@ -188,13 +188,13 @@
 
   /* ═══════════ PRINT ═══════════ */
   @media print{
-    @page{size:A4;margin:12mm}
-    html{font-size:12px}
+    @page{size:A4;margin:10mm}
+    html{font-size:11px}
     body{background:#fff}
     .page{max-width:100%;padding:0}
     .header{border-radius:0;padding:20px 24px;box-shadow:none;break-inside:avoid}
     .main-grid{grid-template-columns:1fr;gap:16px}
-    .card,.side-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .card{box-shadow:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}.side-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .card{padding:16px 20px;margin-bottom:14px}
     .side-card{padding:14px 16px;margin-bottom:12px}
     .avatar{width:56px;height:56px}
