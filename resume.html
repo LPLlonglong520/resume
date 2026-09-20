@@ -40,7 +40,9 @@
     background:radial-gradient(ellipse,rgba(37,99,235,.06),transparent 70%);
   }
   .header-row{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;position:relative;z-index:1}
-  .header-main{flex:1;min-width:0}
+  .header-main{flex:1;min-width:0;display:flex;align-items:center;gap:20px}
+  .avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(255,255,255,.3);box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .header-info{flex:1;min-width:0}
   .header-name{font-size:2rem;font-weight:700;color:#fff;letter-spacing:.03em;margin-bottom:2px;line-height:1.2}
   .header-role{font-size:.95rem;color:rgba(255,255,255,.78);font-weight:400;margin-bottom:18px}
   .header-contact{display:flex;flex-wrap:wrap;gap:6px 20px}
@@ -54,7 +56,7 @@
   .kpi-label{font-size:.72rem;color:rgba(255,255,255,.55);margin-top:4px;letter-spacing:.04em}
 
   /* ═══════════ MAIN GRID ═══════════ */
-  .main-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
+  .main-grid{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
 
   /* ═══════════ SECTION TITLES ═══════════ */
   .sec-title{
@@ -67,10 +69,12 @@
 
   /* ═══════════ LEFT COLUMN ═══════════ */
   .card{
-    background:var(--surface);border-radius:var(--radius);
-    border:1px solid var(--rule);padding:24px 28px;margin-bottom:20px;
+    background:linear-gradient(150deg,#ffffff 55%,#eef4ff 100%);
+    border-radius:var(--radius);
+    border:1px solid var(--rule);padding:20px 26px;margin-bottom:14px;
     box-shadow:var(--shadow);
   }
+  .card-projects{background:linear-gradient(150deg,#ffffff 55%,#eafaf6 100%)}
 
   /* Work experience timeline */
   .job{margin-bottom:24px;position:relative}
@@ -112,10 +116,15 @@
 
   /* ═══════════ RIGHT COLUMN ═══════════ */
   .side-card{
-    background:var(--surface);border-radius:var(--radius);
-    border:1px solid var(--rule);padding:20px 22px;margin-bottom:16px;
+    background:linear-gradient(150deg,#ffffff 55%,#f1f5fb 100%);
+    border-radius:var(--radius);
+    border:1px solid var(--rule);padding:18px 20px;margin-bottom:12px;
     box-shadow:var(--shadow);
   }
+  .side-edu{background:linear-gradient(150deg,#ffffff 55%,#eef4ff 100%)}
+  .side-skills{background:linear-gradient(150deg,#ffffff 55%,#f4f1fd 100%)}
+  .side-honors{background:linear-gradient(150deg,#ffffff 55%,#fdf8ec 100%)}
+  .side-eval{background:linear-gradient(150deg,#ffffff 55%,#e9faf6 100%)}
   .side-title{
     font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:.06em;
     text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px;
@@ -140,6 +149,15 @@
   .s-primary{background:var(--accent-soft);color:var(--accent)}
   .s-secondary{background:var(--bg);color:var(--muted)}
 
+  /* Word cloud (AI 应用) */
+  .cloud{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:16px;row-gap:2px;line-height:2}
+  .cloud span{display:inline-block;white-space:nowrap}
+  .cloud .c-xl{font-size:1.2rem;font-weight:800;color:var(--accent-deep)}
+  .cloud .c-lg{font-size:1.02rem;font-weight:700;color:var(--accent)}
+  .cloud .c-md{font-size:.9rem;font-weight:600;color:#0d9488}
+  .cloud .c-sm{font-size:.8rem;font-weight:500;color:var(--muted)}
+  .cloud .c-xs{font-size:.74rem;font-weight:500;color:var(--faint)}
+
   /* Honors */
   .honor-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--rule-light)}
   .honor-item:last-child{border-bottom:none}
@@ -158,9 +176,10 @@
     .page{max-width:100%;padding:0}
     .header{border-radius:0;padding:20px 24px;box-shadow:none;break-inside:avoid}
     .main-grid{grid-template-columns:1fr;gap:16px}
-    .card,.side-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+    .card,.side-card{box-shadow:none;break-inside:avoid;page-break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
     .card{padding:16px 20px;margin-bottom:14px}
     .side-card{padding:14px 16px;margin-bottom:12px}
+    .avatar{width:56px;height:56px}
     .job{margin-bottom:16px;break-inside:avoid}
     .job-bullets li{break-inside:avoid}
     .header-contact span,.kpi-item{color:rgba(255,255,255,.85)!important}
@@ -183,18 +202,21 @@
 <div class="header">
   <div class="header-row">
     <div class="header-main">
-      <div class="header-name">刘佩龙</div>
-      <div class="header-role">AI 产品经理 &nbsp;·&nbsp; 企业级 AI 解决方案</div>
-      <div class="header-contact">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1993年 · 6年+ 产品经验</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.8 19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.93 2.84 2 2 0 012 .84h3a2 2 0 012 1.72"/></svg>133-3601-1475</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>杭州</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>3年+ AI 产品落地</span>
+      <img class="avatar" src="avatar.jpg" alt="刘佩龙">
+      <div class="header-info">
+        <div class="header-name">刘佩龙</div>
+        <div class="header-role">AI 产品经理 &nbsp;·&nbsp; 企业AI解决方案 &nbsp;·&nbsp; 企业AI转型 &nbsp;·&nbsp; 企业AI效能</div>
+        <div class="header-contact">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>1993年 · 7年+ 产品经验</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.79 19.79 0 0111.19 18.8 19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.93 2.84 2 2 0 012 .84h3a2 2 0 012 1.72"/></svg>133-3601-1475</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>杭州</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>4年+ AI 产品落地</span>
+        </div>
       </div>
     </div>
     <div class="kpi-row">
-      <div class="kpi-item"><span class="kpi-num">5+</span><span class="kpi-label">全场景业务流</span></div>
-      <div class="kpi-item"><span class="kpi-num">10+</span><span class="kpi-label">AI 应用上线</span></div>
+      <div class="kpi-item"><span class="kpi-num">9</span><span class="kpi-label">业务场景</span></div>
+      <div class="kpi-item"><span class="kpi-num">28+</span><span class="kpi-label">AI 能力上线</span></div>
       <div class="kpi-item"><span class="kpi-num">8</span><span class="kpi-label">荣誉认定</span></div>
     </div>
   </div>
@@ -220,7 +242,7 @@
         <span class="job-time">2023.05 — 至今</span>
       </div>
       <div class="job-company">安恒信息技术股份有限公司 · 营销中心</div>
-      <div class="job-summary"><strong style="color:var(--ink)">从0到1主导</strong>营销全链路 AI 应用体系建设，独立完成业务诊断 → 场景设计 → 大模型选型与接入 → 智能体 / Skill 研发 → 效果度量 → 迭代运营全闭环，累计落地 <strong style="color:var(--green)">10个</strong> 企业级 AI 应用，覆盖市场拓展、客户拜访、项目推进、招投标、知识赋能五大核心场景，全部稳定上线运行。</div>
+      <div class="job-summary"><strong style="color:var(--ink)">从 0 到 1 搭建</strong>安恒营销中心全链路 AI 应用体系，沿营销全业务流（机会点 → 客户 → 商机 → 招投标 → 合同 → 交付 → 收入 → 售后 → 日常）系统梳理，累计落地 <strong style="color:var(--green)">9 大场景</strong>（8 业务 + 1 日常）、<strong style="color:var(--green)">28+ 项 AI 能力</strong>，建成 <strong style="color:var(--green)">7×24 小时销售在线的「超级数字员工」</strong>。</div>
       <ul class="job-bullets">
         <li><strong>安全市场空间体系</strong>&nbsp;—&nbsp;设计"数据采集—AI治理—用户分层—场景落地"四层架构，主导公司级平台产品化落地，推动 <strong style="color:var(--green)">2000w+ 商机转化</strong><span class="tag tag-gold">🏆 年度卓越案例</span></li>
         <li><strong>客户画像</strong>&nbsp;—&nbsp;构建多维画像生成链路，实现"一句指令→3分钟全方位画像"，移动端可用，销售拜访标配工具</li>
@@ -264,15 +286,15 @@
   </div>
 
   <!-- AI PROJECTS -->
-  <div class="card">
+  <div class="card card-projects">
     <div class="sec-title">
       <span class="dot" style="background:#0d9488"></span>核心 AI 项目
       <span class="en">Projects</span>
     </div>
-    <div class="proj-desc">2023 年起，主导安恒信息营销全链路 AI 应用矩阵建设，覆盖五大核心业务场景，10+ 企业级 AI 应用全部上线稳定运行。点击下方链接查看完整项目演示与数据成果：</div>
+    <div class="proj-desc">2023 年初起，主导安恒营销全业务流 AI 应用矩阵建设，覆盖 9 大场景、近 30 项 AI 能力，全部上线稳定运行。点击下方查看「超级数字员工」完整介绍：</div>
     <a class="proj-link" href="https://lpllonglong520.github.io/ai-marketing-site/" target="_blank">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-      查看我主导的企业级 AI 产品介绍
+      查看我主导的「超级数字员工」网站
     </a>
   </div>
 </div>
@@ -281,7 +303,7 @@
 <div>
 
   <!-- EDUCATION -->
-  <div class="side-card">
+  <div class="side-card side-edu">
     <div class="side-title">教育背景</div>
     <div class="edu-item">
       <div class="edu-line">
@@ -302,16 +324,12 @@
   </div>
 
   <!-- SKILLS -->
-  <div class="side-card">
+  <div class="side-card side-skills">
     <div class="side-title">技术栈</div>
     <div class="skill-group">
       <div class="skill-cat">AI 应用</div>
-      <div class="skill-tags">
-        <span class="s-tag s-primary">Coze</span><span class="s-tag s-primary">Kimi</span>
-        <span class="s-tag s-primary">DeepSeek</span><span class="s-tag s-primary">千问</span>
-        <span class="s-tag s-secondary">钉钉AI助理</span><span class="s-tag s-secondary">纳米AI</span>
-        <span class="s-tag s-secondary">智谱</span><span class="s-tag s-secondary">豆包</span>
-        <span class="s-tag s-secondary">ima</span><span class="s-tag s-secondary">即梦</span>
+      <div class="cloud">
+        <span class="c-xl">DeepSeek</span><span class="c-lg">WorkBuddy</span><span class="c-lg">Cursor</span><span class="c-md">Kimi</span><span class="c-md">千问办公</span><span class="c-md">智谱</span><span class="c-sm">Harness</span><span class="c-sm">Hermes</span><span class="c-sm">OpenDesign</span><span class="c-sm">Obsidian</span><span class="c-sm">Ima</span><span class="c-sm">小云雀</span><span class="c-xs">豆包</span><span class="c-xs">即梦</span><span class="c-xs">可灵</span>
       </div>
     </div>
     <div class="skill-group">
@@ -341,7 +359,7 @@
   </div>
 
   <!-- HONORS -->
-  <div class="side-card">
+  <div class="side-card side-honors">
     <div class="side-title">荣誉与认证</div>
     <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">公司级 AI 金点子 · 卓越案例</div><div class="honor-from">安恒信息 · 招投标 AI</div></div></div>
     <div class="honor-item"><span class="honor-icon">🏆</span><div><div class="honor-text">2024 年 AI 案例集 NO.1</div><div class="honor-from">安恒信息全公司评选</div></div></div>
@@ -354,7 +372,7 @@
   </div>
 
   <!-- SELF EVALUATION -->
-  <div class="side-card">
+  <div class="side-card side-eval">
     <div class="side-title">自我评价</div>
     <div class="eval-text">6 年+ 企业级数字化产品经验，3 年+ 深耕企业级 AI 场景化落地，擅长将业务痛点转化为可落地的 AI 产品。具备从 0 到 1 主导 AI 项目的完整能力——<br>业务调研、场景设计、大模型选型与接入、智能体/skill研发、效果量化/测评、迭代运营——多个项目已在真实业务场景中稳定运行并持续迭代，形成可复用的 AI 产品方法论。</div>
   </div>
